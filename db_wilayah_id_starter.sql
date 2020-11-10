@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 10, 2020 at 07:41 AM
+-- Generation Time: Nov 10, 2020 at 08:43 AM
 -- Server version: 5.7.24
 -- PHP Version: 7.3.24
 
@@ -29,11 +29,11 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `districts` (
   `id` bigint(20) NOT NULL,
-  `dagri_district_id` bigint(20) NOT NULL,
-  `dagri_regency_id` bigint(20) NOT NULL,
+  `dagri_district_id` char(50) NOT NULL,
+  `dagri_regency_id` char(50) NOT NULL,
   `dagri_name` varchar(255) DEFAULT NULL,
-  `bps_district_id` bigint(20) NOT NULL,
-  `bps_regency_id` bigint(20) NOT NULL,
+  `bps_district_id` char(50) NOT NULL,
+  `bps_regency_id` char(50) NOT NULL,
   `bps_name` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -45,9 +45,9 @@ CREATE TABLE `districts` (
 
 CREATE TABLE `provinces` (
   `id` bigint(20) NOT NULL,
-  `dagri_province_id` bigint(20) NOT NULL,
+  `dagri_province_id` char(50) NOT NULL,
   `dagri_name` varchar(255) DEFAULT NULL,
-  `bps_province_id` bigint(20) NOT NULL,
+  `bps_province_id` char(50) NOT NULL,
   `bps_name` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -59,11 +59,11 @@ CREATE TABLE `provinces` (
 
 CREATE TABLE `regencies` (
   `id` bigint(20) NOT NULL,
-  `dagri_regency_id` bigint(20) NOT NULL,
-  `dagri_province_id` bigint(20) NOT NULL,
+  `dagri_regency_id` char(50) NOT NULL,
+  `dagri_province_id` char(50) NOT NULL,
   `dagri_name` varchar(255) DEFAULT NULL,
-  `bps_regency_id` bigint(20) NOT NULL,
-  `bps_province_id` bigint(20) NOT NULL,
+  `bps_regency_id` char(50) NOT NULL,
+  `bps_province_id` char(50) NOT NULL,
   `bps_name` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -75,11 +75,11 @@ CREATE TABLE `regencies` (
 
 CREATE TABLE `villages` (
   `id` bigint(20) NOT NULL,
-  `dagri_village_id` bigint(20) NOT NULL,
-  `dagri_district_id` bigint(20) NOT NULL,
+  `dagri_village_id` char(50) NOT NULL,
+  `dagri_district_id` char(50) NOT NULL,
   `dagri_name` varchar(255) DEFAULT NULL,
-  `bps_village_id` bigint(20) NOT NULL,
-  `bps_district_id` bigint(20) NOT NULL,
+  `bps_village_id` char(50) NOT NULL,
+  `bps_district_id` char(50) NOT NULL,
   `bps_name` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -110,8 +110,8 @@ ALTER TABLE `provinces`
 --
 ALTER TABLE `regencies`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `BPS` (`bps_regency_id`),
   ADD UNIQUE KEY `DAGRI` (`dagri_regency_id`),
+  ADD UNIQUE KEY `BPS` (`bps_regency_id`),
   ADD KEY `FK_regencies_provinces` (`dagri_province_id`),
   ADD KEY `FK_regencies_provinces_2` (`bps_province_id`);
 
@@ -145,7 +145,7 @@ ALTER TABLE `provinces`
 -- AUTO_INCREMENT for table `regencies`
 --
 ALTER TABLE `regencies`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `villages`
