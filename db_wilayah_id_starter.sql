@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 10, 2020 at 11:01 AM
+-- Generation Time: Nov 11, 2020 at 03:12 AM
 -- Server version: 5.7.24
 -- PHP Version: 7.3.24
 
@@ -123,8 +123,8 @@ CREATE TABLE `dagri_villages` (
 
 CREATE TABLE `districts` (
   `id` bigint(20) NOT NULL,
-  `bps_district_id` char(50) DEFAULT NULL,
   `dagri_district_id` char(50) DEFAULT NULL,
+  `bps_district_id` char(50) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -162,8 +162,8 @@ CREATE TABLE `regencies` (
 
 CREATE TABLE `villages` (
   `id` bigint(20) NOT NULL,
-  `bps_village_id` char(50) DEFAULT NULL,
   `dagri_village_id` char(50) DEFAULT NULL,
+  `bps_village_id` char(50) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
